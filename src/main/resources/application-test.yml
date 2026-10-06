@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16-alpine:///shortener
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+app:
+  base-url: http://localhost:8080
+  jwt:
+    secret: "test-secret-key-that-is-at-least-32-bytes-long-1234567890"
+    access-token-expiration-ms: 3600000
+    refresh-token-expiration-ms: 604800000
+  code:
+    length: 7
+    max-retries: 5
+
+logging:
+  level:
+    com.example.shortener: INFO
